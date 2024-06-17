@@ -1,11 +1,10 @@
 import { BlogPosts } from 'app/components/posts';
+import DynamicHeader from './components/header';
 
 export default function Page() {
 	return (
 		<section>
-			<h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-				My Portfolio
-			</h1>
+			<DynamicHeader />
 			<div className="flex flex-col md:flex-row">
 				<div className="flex-1">
 					<BlogPosts />
