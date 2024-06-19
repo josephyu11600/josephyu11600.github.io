@@ -47,7 +47,7 @@ const DynamicHeader = (): JSX.Element => {
 						prevHeaderText.length - 1
 					);
 				});
-			}, 80);
+			}, 50);
 		}
 		return () => {
 			clearTimeout(timeout);
@@ -64,8 +64,8 @@ const DynamicHeader = (): JSX.Element => {
 	]);
 
 	return (
-		<h1 className="mb-4 text-2xl font-semibold tracking-tighter min-h-16">
-			{headerText}
+		<h1 className="mb-8 text-xl font-semibold tracking-tighter min-h-14">
+			{`${headerText} developer`}
 		</h1>
 	);
 };
