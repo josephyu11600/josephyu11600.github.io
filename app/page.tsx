@@ -31,11 +31,12 @@ export default function Page() {
 						{`and`} <span className="font-bold">{`Docker`}</span>{' '}
 						{`to deploy applications onto different cloud environments.`}
 					</p>
-					{`
-            I enjoy diving deep and moving quickly to tackle new features with high levels of ambiguity. In the process I find myself digging through documentation for containerized solutions, learning new frameworks, and collaborating with open source developers
-            (I've lost track of the number of late night threads I've started on their discords).
+					<p>
+						{`
+            I enjoy diving deep and moving quickly to tackle new features with high levels of ambiguity. In the process I find myself digging through documentation for containerized solutions, learning new frameworks, and collaborating with open source developers.
+			My current interests are in computer networking and cloud focusing on the WebRTC protocol and ways to support WebRTC infrastructure on cloud environments.
           `}
-					<p></p>
+					</p>
 				</div>
 			</div>
 		</section>
