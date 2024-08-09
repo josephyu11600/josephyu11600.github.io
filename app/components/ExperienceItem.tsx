@@ -24,7 +24,9 @@ export const ExperienceItem = (props: Experience): JSX.Element => {
 			<TimelineContent>
 				<TimelineTime>{date}</TimelineTime>
 				<TimelineTitle>{title}</TimelineTitle>
-				<TimelineBody>{description}</TimelineBody>
+				<TimelineBody className="whitespace-pre-line">
+					{description}
+				</TimelineBody>
 			</TimelineContent>
 		</TimelineItem>
 	);

@@ -4,30 +4,38 @@ import type { Experience } from 'app/components/ExperienceItem';
 
 const experiences: Experience[] = [
 	{
-		date: 'August 2022',
+		date: 'August 2018 - May 2022',
 		title: 'University of California, Berkeley',
 		description: "Bachelor's of Arts, Computer Science \n GPA: 3.80/4.0",
 	},
 	{
 		date: 'June 2020 - August 2020',
-		title: 'Software Engineer Intern - Listing Bird',
-		description: '',
+		title: 'Listing Bird',
+		description:
+			'Software Engineering Intern \n Skills:  NodeJS • NestJS • AngularJS • MongoDB',
 	},
 	{
 		date: 'June 2021 - August 2021',
-		title: 'Software Engineer Intern - Amazon',
-		description: '',
+		title: 'Amazon',
+		description:
+			'Software Engineer Intern \n Skills:  Java • Mockito • AWS • DynamoDB',
 	},
 	{
 		date: 'July 2022 - May 2023',
-		title: 'Software Engineer - Nuro',
-		description: '',
+		title: 'Nuro',
+		description:
+			'Software Engineer \n Skills:  Go • gRPC • Protobuf • GCP • MySQL',
 	},
 	{
 		date: 'June 2023 - July 2024',
-		title: 'Software Engineer - Applied Intuition',
+		title: 'Applied Intuition',
 		description:
-			'Skills: TypeScript • React • Python • Protobuf • PostgreSQL',
+			'Software Engineer \n Skills: TypeScript • React • Python • Protobuf • PostgreSQL',
+	},
+	{
+		date: 'August 2024 - May 2026',
+		title: 'Georgia Institute of Technology',
+		description: "Master's of Science, Computer Science",
 	},
 ];
 
