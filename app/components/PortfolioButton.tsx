@@ -9,7 +9,11 @@ type PortfolioButtonProps = {
 
 const PortfolioButton = (props: PortfolioButtonProps): JSX.Element => {
 	const { text, onClick } = props;
-	return <Button onClick={onClick}>{text}</Button>;
+	return (
+		<Button color="gray" onClick={onClick}>
+			{text}
+		</Button>
+	);
 };
 
 export default PortfolioButton;

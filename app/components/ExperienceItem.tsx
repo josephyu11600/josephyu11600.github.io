@@ -1,3 +1,5 @@
+'use client';
+
 import {
 	TimelineItem,
 	TimelinePoint,
@@ -5,22 +7,23 @@ import {
 	TimelineTime,
 	TimelineTitle,
 	TimelineBody,
-	Button,
 } from 'flowbite-react';
 import PortfolioButton from './PortfolioButton';
+
+export enum ExperienceType {
+	Education,
+	Industry,
+}
 
 export type Experience = {
 	date: string;
 	title: string;
 	description: string;
+	type: ExperienceType;
 };
 
-type ExperienceItemProps = Experience & {
-	shouldAddLearnMore?: boolean;
-};
-
-export const ExperienceItem = (props: ExperienceItemProps): JSX.Element => {
-	const { date, title, description, shouldAddLearnMore } = props;
+export const ExperienceItem = (props: Experience): JSX.Element => {
+	const { date, title, description, type } = props;
 
 	return (
 		<TimelineItem key={title}>
@@ -31,7 +34,7 @@ export const ExperienceItem = (props: ExperienceItemProps): JSX.Element => {
 				<TimelineBody className="whitespace-pre-line">
 					{description}
 				</TimelineBody>
-				{shouldAddLearnMore ? (
+				{type === ExperienceType.Industry ? (
 					<PortfolioButton text="Learn More" onClick={() => {}} />
 				) : null}
 			</TimelineContent>
