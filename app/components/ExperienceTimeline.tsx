@@ -58,6 +58,7 @@ const ExperienceTimeline = (): JSX.Element => {
 						title={title}
 						description={description}
 						type={type}
+						key={title}
 					/>
 				);
 			})}

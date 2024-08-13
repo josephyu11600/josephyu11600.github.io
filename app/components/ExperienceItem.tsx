@@ -22,7 +22,11 @@ export type Experience = {
 	type: ExperienceType;
 };
 
-export const ExperienceItem = (props: Experience): JSX.Element => {
+type ExperienceProps = Experience & {
+	key: string;
+};
+
+export const ExperienceItem = (props: ExperienceProps): JSX.Element => {
 	const { date, title, description, type } = props;
 
 	return (
