@@ -20,7 +20,7 @@ export enum ExperienceType {
 export type Experience = {
 	date: string;
 	title: string;
-	description: string;
+	summary: string;
 	type: ExperienceType;
 };
 
@@ -29,7 +29,7 @@ type ExperienceProps = Experience & {
 };
 
 export const ExperienceItem = (props: ExperienceProps): JSX.Element => {
-	const { date, title, description, type } = props;
+	const { date, title, summary, type } = props;
 	const [openModal, setOpenModal] = useState(false);
 
 	return (
@@ -39,18 +39,10 @@ export const ExperienceItem = (props: ExperienceProps): JSX.Element => {
 				<TimelineTime>{date}</TimelineTime>
 				<TimelineTitle>{title}</TimelineTitle>
 				<TimelineBody className="whitespace-pre-line">
-					{description}
+					{summary}
 				</TimelineBody>
 				{type === ExperienceType.Industry ? (
 					<>
-						<PortfolioButton
-							text="Learn More"
-							onClick={() => {
-								setOpenModal((prevModalState: boolean) => {
-									return !prevModalState;
-								});
-							}}
-						/>
 						<ExperienceModal
 							header={title}
 							body=""
