@@ -1,7 +1,7 @@
 'use client';
 
-import { useCallback, useEffect, useRef } from 'react';
-import { Modal } from 'react-daisyui';
+import { useCallback, useRef } from 'react';
+import { Button, Modal } from 'react-daisyui';
 import PortfolioButton from './PortfolioButton';
 
 type ExperienceModalProps = {
@@ -21,6 +21,16 @@ const ExperienceModal = (modalProps: ExperienceModalProps) => {
 		<>
 			<PortfolioButton text="Learn More" onClick={handleShow} />
 			<Modal backdrop onClick={handleShow} ref={ref}>
+				<form method="dialog">
+					<Button
+						size="sm"
+						color="ghost"
+						shape="circle"
+						className="absolute right-3 top-2"
+					>
+						x
+					</Button>
+				</form>
 				<Modal.Header>{header}</Modal.Header>
 				<Modal.Body>{body}</Modal.Body>
 			</Modal>
