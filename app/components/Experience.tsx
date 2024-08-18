@@ -1,6 +1,7 @@
 'use client';
 
 import {
+	Drawer,
 	Timeline,
 	TimelineBody,
 	TimelineContent,
@@ -10,12 +11,16 @@ import {
 	TimelineTitle,
 } from 'flowbite-react';
 import { useCallback, useRef, useState } from 'react';
-import PortfolioButton from './PortfolioButton';
 import { Button, Modal } from 'react-daisyui';
 
 type ExperienceModalProps = {
 	header: string;
 	body: string;
+};
+
+type DrawerProps = {
+	header: string;
+	items?: JSX.Element;
 };
 
 export enum ExperienceType {
@@ -28,10 +33,12 @@ export type Experience = {
 	title: string;
 	summary: string;
 	type: ExperienceType;
+	bulleted_description?: string[];
 };
 
-type ExperienceProps = Experience & {
+type ExperienceItemProps = Experience & {
 	key: string;
+	children?: JSX.Element;
 };
 
 export default function Experiences({ children }): JSX.Element {
@@ -51,8 +58,8 @@ Experiences.Modal = (modalProps: ExperienceModalProps) => {
 
 	return (
 		<>
-			<PortfolioButton text="Learn More" onClick={handleShow} />
-			<Modal backdrop onClick={handleShow} ref={ref}>
+			<Button onClick={handleShow}>Learn More</Button>
+			<Modal backdrop ref={ref}>
 				<form method="dialog">
 					<Button
 						size="sm"
@@ -69,9 +76,8 @@ Experiences.Modal = (modalProps: ExperienceModalProps) => {
 		</>
 	);
 };
-Experiences.Item = (props: ExperienceProps): JSX.Element => {
-	const { date, title, summary, type } = props;
-	const [openModal, setOpenModal] = useState(false);
+Experiences.Item = (props: ExperienceItemProps): JSX.Element => {
+	const { date, title, summary, children } = props;
 
 	return (
 		<TimelineItem key={title}>
@@ -82,12 +88,29 @@ Experiences.Item = (props: ExperienceProps): JSX.Element => {
 				<TimelineBody className="whitespace-pre-line">
 					{summary}
 				</TimelineBody>
-				{type === ExperienceType.Industry ? (
-					<>
-						<Experiences.Modal header={title} body="" />
-					</>
-				) : null}
+				{children ?? null}
 			</TimelineContent>
 		</TimelineItem>
+	);
+};
+
+Experiences.Drawer = (props: DrawerProps): JSX.Element => {
+	const { header, items } = props;
+	const [isOpen, setIsOpen] = useState(false);
+	const handleShow = () => setIsOpen(true);
+	const handleClose = () => setIsOpen(false);
+	return (
+		<>
+			<Button onClick={handleShow}>Learn More</Button>
+			<Drawer
+				className="w-4/5 md:w-1/3"
+				open={isOpen}
+				onClose={handleClose}
+				position="right"
+			>
+				<Drawer.Header title={header} titleIcon={() => <></>} />
+				<Drawer.Items>{items}</Drawer.Items>
+			</Drawer>
+		</>
 	);
 };

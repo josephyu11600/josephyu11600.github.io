@@ -6,7 +6,7 @@ export default function Page() {
 		<section>
 			<h1 className="text-2xl font-semibold mb-4">Hi I'm Joseph</h1>
 			<DynamicHeader />
-			<div className="flex flex-col md:flex-row">
+			<div className="flex flex-col md:flex-row lg: flex-row">
 				<div className="flex-1 sm: mb-4">
 					<img
 						className="h-auto max-w-xs rounded-lg"
